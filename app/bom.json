@@ -1,0 +1,109 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:83a026cd-2f5e-452f-a061-6ef345aff10e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-05-29T08:45:12Z",
+    "tools": {
+      "components": [
+        {
+          "group": "@cyclonedx",
+          "name": "cdxgen",
+          "version": "10.5.1",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@10.5.1",
+          "type": "application",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@10.5.1",
+          "author": "OWASP Foundation",
+          "publisher": "OWASP Foundation"
+        }
+      ]
+    },
+    "authors": [
+      {
+        "name": "OWASP Foundation"
+      }
+    ],
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "component": {
+      "group": "",
+      "name": "app",
+      "version": "latest",
+      "type": "application",
+      "bom-ref": "pkg:gem/app@latest",
+      "purl": "pkg:gem/app@latest"
+    }
+  },
+  "components": [
+    {
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-databind",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8?type=jar",
+      "properties": [
+        {
+          "name": "GradleProfileName",
+          "value": "compileClasspath"
+        }
+      ]
+    },
+    {
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-annotations",
+      "version": "2.9.0",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.9.0?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.9.0?type=jar",
+      "properties": [
+        {
+          "name": "GradleProfileName",
+          "value": "compileClasspath"
+        }
+      ]
+    },
+    {
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-core",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8?type=jar",
+      "properties": [
+        {
+          "name": "GradleProfileName",
+          "value": "compileClasspath"
+        }
+      ]
+    }
+  ],
+  "services": [],
+  "dependencies": [
+    {
+      "ref": "pkg:maven/cbom demo/app@latest?type=jar",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8?type=jar"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8?type=jar",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.9.0?type=jar",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8?type=jar"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.9.0?type=jar",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8?type=jar",
+      "dependsOn": []
+    }
+  ]
+}
