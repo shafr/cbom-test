@@ -1,0 +1,51 @@
+# Note, the following are also pinned from resources/buildsrc/base/get-pip.py.
+# pip==23.3.2
+# setuptools==60.10.0
+# wheel==0.37.1
+
+cx_freeze==6.14.2
+msgpack-python==0.5.6
+psutil==5.9.1
+netifaces==0.11.0
+arrow==1.2.2
+six==1.16.0
+# defusedxml doesn't officially support Python 3.11 yet. It was last updated to support Python 3.9 in version 0.7.0rc1, with 0.8.0.dev1 providing support for Python 3.10.
+defusedxml==0.7.1
+cffi==1.15.0
+# pycparser isn't used directly by the agent, but is pulled in and used by cffi.
+# pycparser has been pinned to an older version to bypass a compatibility issue with Python 3.11: https://github.com/eliben/pycparser/issues/291#issuecomment-534630850.
+pycparser==2.14
+comtypes==1.1.11
+# pywin is defined in resources/buildsrc/windows/lib_build.bat.
+# Download the pywin binary from https://github.com/mhammond/pywin32/releases.
+# pywin32==305
+wmi==1.5.1
+idna==3.3
+# Crypto. Ensure you have VS14.0+.
+pycryptodome==3.20.0
+# cryptography isn't currently being used in the agent but would still be pulled in via pyopenssl and through the "extensible-ingress-lib" repository, so it is better to pin it here.
+cryptography==42.0.5
+pyopenssl==24.0.0
+git+ssh://git@github.com/rapid7/agent-common.git@v0.8.13
+retry2==0.9.5
+
+# LE Requirements.
+configparser==3.5.0
+certifi==2023.7.22
+#urllib3 is being pulled in as a requirement for the requests library. Older versions introduce CVEs (such as CVE-2023-43804/CVE-2023-45803) so this needs to be pinned.
+urllib3==1.26.18
+requests==2.31.0
+distro==1.7.0
+
+git+ssh://git@github.com/rapid7/rapid7-endpoint-log-follower@v1.5.17
+
+# Raw File Acquisition requirement.
+pytsk3==20211111
+
+#: Collection control Requirements.
+# zstandard should match what is being used in extensible-ingress-lib: https://github.com/rapid7/extensible-ingress-lib/tree/master/python/resources/requirements.
+zstandard==0.17.0
+git+ssh://git@github.com/rapid7/extensible-ingress-lib.git@extensible-ingress-sdk-0.2.15#subdirectory=python
+
+#: Lock transitive dependency LIEF from cx_freeze due to breaking change:
+lief==0.14.0
